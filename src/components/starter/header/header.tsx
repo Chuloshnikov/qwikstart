@@ -1,43 +1,59 @@
 import { component$ } from "@builder.io/qwik";
-import { QwikLogo } from "../icons/qwik";
-import styles from "./header.module.css";
+import { Link } from "@builder.io/qwik-city";
+import ImgLogo from '../../../media/logo.svg?jsx';
+
 
 export default component$(() => {
   return (
-    <header class={styles.header}>
-      <div class={["container", styles.wrapper]}>
-        <div class={styles.logo}>
-          <a href="/" title="qwik">
-            <QwikLogo height={50} width={143} />
-          </a>
+    <header class="p-5">
+      <hav
+      class="flex justify-between"
+      >
+        <div
+        class="flex"
+        >
+          <ImgLogo
+          class="h-16 w-16"
+          alt="logo"
+          />
+          <h1
+          class="text-6xl"
+          >
+            Octorium
+          </h1>
         </div>
-        <ul>
+        <ul
+        class="flex gap-3 text-xl font-semibold"
+        >
           <li>
-            <a
-              href="https://qwik.builder.io/docs/components/overview/"
-              target="_blank"
-            >
-              Docs
-            </a>
+            <Link 
+              class="hover:text-red-700 duration-300"
+              href="/">
+              Home
+            </Link>
           </li>
           <li>
-            <a
-              href="https://qwik.builder.io/examples/introduction/hello-world/"
-              target="_blank"
-            >
-              Examples
-            </a>
+            <Link 
+              class="hover:text-red-700 duration-300"
+              href="/about">About
+            </Link>
           </li>
           <li>
-            <a
-              href="https://qwik.builder.io/tutorial/welcome/overview/"
-              target="_blank"
-            >
-              Tutorials
-            </a>
+            <Link 
+            class="hover:text-red-700 duration-300"
+            href="/programsInfo">
+              Programs
+            </Link>
+          </li>
+          <li>
+            <Link 
+            class="hover:text-red-700 duration-300"
+            href="/contact">
+              Contacts
+            </Link>
           </li>
         </ul>
-      </div>
+      </hav>
     </header>
   );
 });
