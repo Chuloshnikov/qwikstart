@@ -26,12 +26,7 @@ body {
 }
 
 /* HEADINGS ------------------------------------- */
-h1,
-h2,
-h3 {
-  color: white;
-  margin: 0;
-}
+
 
 h1 {
   font-size: 3.2rem;
