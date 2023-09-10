@@ -1,0 +1,1 @@
+import{f as l}from"./q-1f730497.js";const u=()=>l("article",null,null,[l("h2",null,null,"Contacts",3,null),l("p",null,null,"Nevada, fullhose st. 74",3,null),l("p",null,null,"+3456529607549495",3,null)],3,"YA_0");export{u as s_M0MhZOWBKK8};
