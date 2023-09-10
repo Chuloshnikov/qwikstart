@@ -1,7 +1,11 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useStore } from "@builder.io/qwik";
 
 export default component$(() => {
     const formVisible = useSignal(false);
+    const formState = useStore({
+        name: '',
+        message: '',
+    })
 
     return (
         <article
@@ -26,23 +30,38 @@ export default component$(() => {
                 
                     
                 {formVisible.value && (
-                <form>
+                <form 
+                preventDefault:submit
+                onSubmit$={() => {
+                    console.log(formState.name, formState.message);
+                    formState.name = ''
+                    formState.message = ''
+                }}
+                >
                     <div>
                         <label>Your name:</label>
                         <input
+                        value={formState.name}
                         type="text"
                         placeholder="your name"
+                        onInput$={(e) => formState.name = (e.target as HTMLInputElement).value}
                         />
                     </div>
                     <div>
                         <label>Your message:</label>
-                        <textarea></textarea>
+                        <textarea
+                        value={formState.message}
+                        onInput$={(e) => formState.message = (e.target as HTMLInputElement).value}
+                        ></textarea>
                     </div>
                     <button
                         type="submit"
-                    >
+                        class="px-4 py-2 bg-red-800 text-white"
+                        >
                         Send
                     </button>
+                    <p>{formState.name}</p>
+                    <p>{formState.message}</p>
                 </form>
                 )}
             </div>
