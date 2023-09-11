@@ -1,13 +1,14 @@
 import { Slot, component$ } from "@builder.io/qwik";
 
 interface ModalProps {
-    size: 'sm' | "lg"
+    size: 'sm' | "lg",
+    frosted?: boolean
 }
 
 export default component$((props: ModalProps) => {
     return (
         <div
-        class="sm"
+        class={`modal ${props.size}`}
         >
             <div
                 class=" w-full h-full fixed top-0 left-0 bg-black"
