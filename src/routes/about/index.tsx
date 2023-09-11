@@ -1,9 +1,17 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 import Modal from "~/components/modal/modal";
 
 export default component$(() => {
 
     const modalVisible = useSignal(false);
+
+    const closeModal = $(() => {
+        //QRL to function prop
+        modalVisible.value = !modalVisible.value
+    })
+
+    
+
     return (
         <article>
             <h2
@@ -28,7 +36,7 @@ export default component$(() => {
                 Open Modal
             </button>
             {modalVisible.value && (
-                <Modal size="sm">
+                <Modal size="sm" frosted={true} close={closeModal}>
                     <div
                     q:slot="content"
                     >
