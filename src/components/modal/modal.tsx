@@ -1,8 +1,10 @@
 import { Slot, component$ } from "@builder.io/qwik";
+import type { PropFunction } from "@builder.io/qwik";
 
 interface ModalProps {
     size: 'sm' | "lg",
-    frosted?: boolean
+    frosted?: boolean,
+    close: PropFunction<() => void>
 }
 
 export default component$((props: ModalProps) => {
@@ -18,6 +20,7 @@ export default component$((props: ModalProps) => {
                     class="bg-white p-5 rounded-[8px] shadow-md mx-auto my-[100px] relative max-w-[90%]"
                     >
                     <div
+                    onClick$={props.close}
                     class="absolute top-[10px] right-[10px] px-[8px] py-[4px] bg-[#dfdfdf] text-[#777] text-[12px] rounded-[4px] cursor-pointer"
                     >
                         close
